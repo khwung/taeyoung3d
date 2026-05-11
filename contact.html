@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CONTACT</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -13,61 +16,63 @@
   <img src="images/home/CONTACT.png" alt="견적문의" class="contact-base">
 
   <!-- 상단 메뉴 -->
-<a href="index.html" class="contact-hotspot c-home"></a>
-<a href="portfolio.html" class="contact-hotspot c-portfolio"></a>
-<a href="process.html" class="contact-hotspot c-process"></a>
-<a href="contact.html" class="contact-hotspot c-contact"></a>
-
+  <a href="index.html" class="contact-hotspot c-home"></a>
+  <a href="portfolio.html" class="contact-hotspot c-portfolio"></a>
+  <a href="process.html" class="contact-hotspot c-process"></a>
+  <a href="contact.html" class="contact-hotspot c-contact"></a>
 
   <!-- 실제 입력 폼 -->
-  <form class="contact-form">
-<input type="text" class="form-name" placeholder="이름을 입력해주세요.">
-<input type="text" class="form-phone" placeholder="예) 010-1234-5678">
-<input type="email" class="form-email" placeholder="이메일을 입력해주세요.">
+  <form class="contact-form" id="contactForm">
 
-<select class="form-category">
-  <option selected disabled>선택해주세요.</option>
-  <option>시제품 제작</option>
-  <option>건축모형 제작</option>
-  <option>발명품 제작</option>
-  <option>졸업작품 제작</option>
-  <option>화장품 용기</option>
-  <option>FDM/SLA 출력</option>
-</select>
+    <input type="text" name="name" class="form-name" placeholder="이름을 입력해주세요." required>
+    <input type="text" name="phone" class="form-phone" placeholder="예) 010-1234-5678" required>
+    <input type="email" name="email" class="form-email" placeholder="이메일을 입력해주세요." required>
 
-<select class="form-budget">
-  <option selected disabled>선택해주세요.</option>
-  <option>10만원 이하</option>
-  <option>10만원 ~ 30만원</option>
-  <option>30만원 ~ 50만원</option>
-  <option>50만원 ~ 100만원</option>
-  <option>100만원 이상</option>
-</select>
+    <select name="category" class="form-category" required>
+      <option value="" selected disabled>선택해주세요.</option>
+      <option>시제품 제작</option>
+      <option>건축모형 제작</option>
+      <option>발명품 제작</option>
+      <option>졸업작품 제작</option>
+      <option>화장품 용기</option>
+      <option>FDM/SLA 출력</option>
+    </select>
 
-<textarea class="form-detail" maxlength="1000" placeholder="프로젝트에 대한 내용을 자세히 입력해주세요."></textarea>
+    <select name="budget" class="form-budget">
+      <option value="" selected disabled>선택해주세요.</option>
+      <option>10만원 이하</option>
+      <option>10만원 ~ 30만원</option>
+      <option>30만원 ~ 50만원</option>
+      <option>50만원 ~ 100만원</option>
+      <option>100만원 이상</option>
+    </select>
 
+    <textarea name="message" class="form-detail" maxlength="1000" placeholder="프로젝트에 대한 내용을 자세히 입력해주세요." required></textarea>
 
-  <label class="form-file">
-<input type="file" multiple accept=".jpg,.jpeg,.png,.pdf,.zip,.stl,.obj">
-  <span class="file-main">파일을 드래그하거나 클릭하여 첨부하세요.</span>
-  <span class="file-sub">도면, 이미지, 참고파일 등(최대 5개, 20MB이하)</span>
-</label>
+    <label class="form-file">
+      <input type="file" name="attachments" multiple accept=".jpg,.jpeg,.png,.pdf,.zip,.stl,.obj">
+      <span class="file-main">파일을 드래그하거나 클릭하여 첨부하세요.</span>
+      <span class="file-sub">도면, 이미지, 참고파일 등(최대 5개, 20MB이하)</span>
+    </label>
 
-    <button type="button" class="form-submit">견적 문의 보내기</button>
+    <button type="submit" class="form-submit">견적 문의 보내기</button>
 
   </form>
 
 </main>
+
 <script>
+  emailjs.init("pjwKWuIAteuo11npm");
+
+  const form = document.getElementById('contactForm');
   const fileInput = document.querySelector('.form-file input');
   const fileMain = document.querySelector('.file-main');
   const fileSub = document.querySelector('.file-sub');
+  const submitBtn = document.querySelector('.form-submit');
 
   fileInput.addEventListener('change', function () {
-
     const files = Array.from(this.files);
 
-    /* 최대 파일 개수 */
     if (files.length > 5) {
       alert('파일은 최대 5개까지 첨부 가능합니다.');
       this.value = '';
@@ -75,7 +80,6 @@
       return;
     }
 
-    /* 총 용량 제한 (20MB) */
     const totalSize = files.reduce((sum, file) => sum + file.size, 0);
     const maxSize = 20 * 1024 * 1024;
 
@@ -86,7 +90,6 @@
       return;
     }
 
-    /* 정상 표시 */
     if (files.length > 0) {
       fileMain.textContent = files.length + '개 파일 선택됨';
       fileSub.textContent = files.map(file => file.name).join(', ');
@@ -99,15 +102,29 @@
     fileMain.textContent = '파일을 드래그하거나 클릭하여 첨부하세요.';
     fileSub.textContent = '도면, 이미지, 참고파일 등(최대 5개, 20MB이하)';
   }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+
+    emailjs.sendForm('ty190225', 'template_95xtibs', form)
+      .then(function () {
+        alert('견적 문의가 정상적으로 접수되었습니다.');
+        form.reset();
+        resetFileText();
+        submitBtn.disabled = false;
+        submitBtn.textContent = '견적 문의 보내기';
+      })
+      .catch(function (error) {
+        console.error('EmailJS Error:', error);
+        alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '견적 문의 보내기';
+      });
+  });
 </script>
-
-.c-home,
-.c-portfolio,
-.c-process,
-.c-contact {
-  z-index: 9999;
-}
-
 
 </body>
 </html>
