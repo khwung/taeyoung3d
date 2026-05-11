@@ -36,6 +36,7 @@
       <option>졸업작품 제작</option>
       <option>화장품 용기</option>
       <option>FDM/SLA 출력</option>
+      <option>기타 문의</option>
     </select>
 
     <select name="budget" class="form-budget">
@@ -60,9 +61,10 @@
   </form>
 
 </main>
-
 <script>
-  emailjs.init("pjwKWuIAteuo11npm");
+  emailjs.init({
+    publicKey: "pjwKWuIAteuo11npm"
+  });
 
   const form = document.getElementById('contactForm');
   const fileInput = document.querySelector('.form-file input');
@@ -109,7 +111,16 @@
     submitBtn.disabled = true;
     submitBtn.textContent = '전송 중...';
 
-    emailjs.sendForm('ty190225', 'template_95xtibs', form)
+    const params = {
+      name: document.querySelector('.form-name').value,
+      phone: document.querySelector('.form-phone').value,
+      email: document.querySelector('.form-email').value,
+      category: document.querySelector('.form-category').value,
+      budget: document.querySelector('.form-budget').value,
+      message: document.querySelector('.form-detail').value
+    };
+
+    emailjs.send('ty190225', 'template_95xtibs', params)
       .then(function () {
         alert('견적 문의가 정상적으로 접수되었습니다.');
         form.reset();
