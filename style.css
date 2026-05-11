@@ -565,3 +565,142 @@ CONTACT PAGE
 .portfolio-base {
   pointer-events: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+PORTFOLIO MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .portfolio-wrap {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .portfolio-base {
+    display: none;
+  }
+
+  /* 모바일 상단 메뉴 */
+  .p-hotspot {
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+    height: 34px !important;
+    padding: 0 10px;
+    margin: 0 4px 12px 0;
+    border: 1px solid #24435f;
+    border-radius: 999px;
+    color: #24435f;
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  .p-home::before {
+    content: "HOME";
+  }
+
+  .p-portfolio::before {
+    content: "PORTFOLIO";
+  }
+
+  .p-process::before {
+    content: "PROCESS";
+  }
+
+  .p-contact::before {
+    content: "견적문의";
+  }
+
+  /* 필터 버튼 */
+  .real-filter-buttons {
+    position: static !important;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+  }
+
+  .filter-btn {
+    flex: none;
+    width: calc(50% - 4px);
+    height: 38px;
+    font-size: 13px;
+  }
+
+  /* 갤러리 */
+  .portfolio-gallery {
+    width: 100%;
+    margin: 20px 0 60px !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .portfolio-card {
+    width: 100%;
+  }
+
+  .portfolio-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+
+  .portfolio-card div {
+    padding: 16px;
+  }
+
+  .portfolio-card span {
+    font-size: 13px;
+  }
+
+  .portfolio-card h3 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+}
+
+
+
