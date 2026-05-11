@@ -600,151 +600,55 @@ CONTACT PAGE
 
 
 
-
 /* =========================
-MOBILE
+MOBILE = PC 원본 그대로 보기
 ========================= */
 
 @media (max-width: 768px){
 
   body{
-    overflow-x:hidden;
+    overflow-x:auto !important;
+    overflow-y:auto !important;
   }
 
   .page,
   .portfolio-wrap,
-  .process-wrap,
+  .process-wrap{
+    width:1280px !important;
+    max-width:none !important;
+    margin:0 !important;
+    overflow:visible !important;
+  }
+
   .contact-wrap{
-    width:100%;
-    max-width:100%;
-    overflow:hidden;
+    width:1692px !important;
+    max-width:none !important;
+    margin:0 !important;
+    overflow:visible !important;
   }
 
   .main-img,
   .portfolio-base,
   .process-base,
   .contact-base{
-    width:100%;
-    height:auto;
-  }
-
-  /* 공통 상단 클릭 */
-  .hotspot,
-  .p-hotspot,
-  .process-hotspot,
-  .contact-hotspot{
-    z-index:999999;
-  }
-
-  /* =========================
-  PORTFOLIO MOBILE
-  ========================= */
-
-  .portfolio-base{
-    pointer-events:none;
-  }
-
-  /* 포트폴리오 상단 메뉴 */
-  .p-home,
-  .p-portfolio,
-  .p-process,
-  .p-contact{
-    top:0.0% !important;
-    height:0.1% !important;
-    z-index:1000000 !important;
-  }
-
-  /* 필터 버튼 */
-  .real-filter-buttons{
-    position:relative !important;
-    top:auto !important;
-    left:auto !important;
-
     width:100% !important;
-    margin:20px 0 0 0 !important;
-    padding:0 16px !important;
-
-    display:grid !important;
-    grid-template-columns:repeat(2, 1fr) !important;
-    gap:8px !important;
-
-    z-index:10 !important;
-    pointer-events:auto !important;
-  }
-
-  .filter-btn{
-    width:100% !important;
-    height:42px !important;
-    font-size:14px !important;
-    position:relative;
-    z-index:20;
-    pointer-events:auto;
-  }
-
-  /* 갤러리 */
-  .portfolio-gallery{
-    width:calc(100% - 32px) !important;
-    margin:30px auto 60px !important;
-
-    display:grid !important;
-    grid-template-columns:1fr !important;
-    gap:16px !important;
-
-    position:relative;
-    z-index:1;
-  }
-
-  .portfolio-card img{
-    width:100%;
     height:auto !important;
   }
 
-  .portfolio-card h3{
-    font-size:20px;
-  }
-
-  /* =========================
-  CONTACT MOBILE
-  ========================= */
-
-  .contact-form{
-    position:absolute;
-    inset:0;
-    z-index:100;
-  }
-
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea{
-    font-size:12px;
-  }
-
-  .file-main{
-    font-size:12px;
-  }
-
-  .file-sub{
-    font-size:11px;
-  }
-
-  .form-submit{
-    font-size:0;
-  }
-
-}
-
-/* 모바일 포트폴리오 상단 이미지 여백 잘라내기 */
-@media (max-width: 768px){
-
-  .portfolio-base{
-    height:200px !important;
-    object-fit:cover !important;
-    object-position:top center !important;
-    display:block !important;
-  }
-
   .real-filter-buttons{
-    margin-top:20px !important;
+    position:absolute !important;
+    top:490px !important;
+    left:48px !important;
+    width:calc(100% - 96px) !important;
+    display:flex !important;
+    gap:16px !important;
   }
 
+  .portfolio-gallery{
+    width:calc(100% - 96px) !important;
+    margin:-1170px auto 100px !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,1fr) !important;
+    gap:22px !important;
+  }
 }
