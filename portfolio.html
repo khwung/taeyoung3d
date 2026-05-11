@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PORTFOLIO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="portfolio-wrap">
+
+  <img src="images/home/PORTFOLIO.png" class="portfolio-base">
+
+<!-- 상단 메뉴 -->
+<a href="index.html" class="p-hotspot p-home"></a>
+<a href="portfolio.html" class="p-hotspot p-portfolio"></a>
+<a href="process.html" class="p-hotspot p-process"></a>
+<a href="contact.html" class="p-hotspot p-contact"></a>
+
+  <!-- 필터 버튼 -->
+  <div class="real-filter-buttons">
+    <button class="filter-btn active" data-filter="all">전체</button>
+    <button class="filter-btn" data-filter="prototype">시제품 제작</button>
+    <button class="filter-btn" data-filter="architectural">건축모형 제작</button>
+    <button class="filter-btn" data-filter="invention">발명품 제작</button>
+    <button class="filter-btn" data-filter="graduate">졸업작품 제작</button>
+    <button class="filter-btn" data-filter="cosmetics">화장품 용기</button>
+    <button class="filter-btn" data-filter="output">FDM/SLA출력</button>
+  </div>
+
+  <!-- 갤러리 -->
+  <section class="portfolio-gallery">
+
+    <!-- prototype -->
+    <script>
+      const prototypeTitles = [
+        "의료기기 외장 시제품","조명 디자인 시제품","전자기기 목업","기능 구조 테스트",
+        "인물 흉상 출력","곡면 구조 출력","디스플레이 케이스","필터형 시제품",
+        "볼트 구조 샘플","조립형 부품 세트","거치형 제품","컨베이어 장치 모형"
+      ];
+
+      const architecturalTitles = [
+        "복합문화시설 모형","주택 건축 모형","공공시설 배치","대형 상업시설",
+        "도시 개발 모형","조경 포함 건축","화이트 매스 모형","대지 계획 모형",
+        "지형 모형","구조 프레임 모형","단지 계획 모형","가구 스케일 모형"
+      ];
+
+      const inventionTitles = [
+        "캔 거치 보조장치","책 고정 발명품","전동공구 보조장치","접이식 구조물",
+        "이동식 프레임","옷걸이 발명품","절단 보조장치","생활용품 아이디어"
+      ];
+
+      const graduateTitles = [
+        "곡면 구조 졸업작품","건축형 졸업작품","분해 조립형 작품","전자제품 목업",
+        "전시용 건축 모형","기계 부품 세트","지형 포함 작품","드론 프레임",
+        "손잡이형 제품","제품 하우징","소형 디바이스","패널형 졸업작품"
+      ];
+
+      const cosmeticsTitles = [
+        "크림 용기 목업","곡면 바디 용기","펌프형 용기","브랜드 패키지",
+        "투명 용기 샘플","로션 펌프 용기","사각 보틀 패키지","세트형 용기"
+      ];
+
+      const outputTitles = [
+        "기능성 출력 부품","정밀 키캡 샘플","원형 디테일 출력","원형 구조 출력",
+        "배관형 출력 부품","정밀 조립 부품","거치대 출력물","소형 반복 부품",
+        "평면 부품 세트","조형물 출력","자동차 모형 출력","대량 부품 출력"
+      ];
+
+      const gallery = document.currentScript.parentElement;
+
+      // prototype
+      for(let i=1;i<=12;i++){
+        gallery.innerHTML += `
+        <div class="portfolio-card prototype">
+          <img src="images/prototype/prototype (${i}).png">
+          <div>
+            <span>시제품 제작</span>
+            <h3>${prototypeTitles[i-1]}</h3>
+          </div>
+        </div>`;
+      }
+
+      // architectural
+      for(let i=1;i<=12;i++){
+        gallery.innerHTML += `
+        <div class="portfolio-card architectural">
+          <img src="images/architectural/architectural (${i}).png">
+          <div>
+            <span>건축모형 제작</span>
+            <h3>${architecturalTitles[i-1]}</h3>
+          </div>
+        </div>`;
+      }
+
+      // invention
+      for(let i=1;i<=8;i++){
+        gallery.innerHTML += `
+        <div class="portfolio-card invention">
+          <img src="images/invention/invention (${i}).png">
+          <div>
+            <span>발명품 제작</span>
+            <h3>${inventionTitles[i-1]}</h3>
+          </div>
+        </div>`;
+      }
+
+      // graduate
+      for(let i=1;i<=12;i++){
+        gallery.innerHTML += `
+        <div class="portfolio-card graduate">
+          <img src="images/graduate/graduate (${i}).png">
+          <div>
+            <span>졸업작품 제작</span>
+            <h3>${graduateTitles[i-1]}</h3>
+          </div>
+        </div>`;
+      }
+
+      // cosmetics
+      for(let i=1;i<=8;i++){
+        gallery.innerHTML += `
+        <div class="portfolio-card cosmetics">
+          <img src="images/cosmetics/cosmetics (${i}).png">
+          <div>
+            <span>화장품 용기</span>
+            <h3>${cosmeticsTitles[i-1]}</h3>
+          </div>
+        </div>`;
+      }
+
+      // output
+      const sla = [2,6,8];
+
+      for(let i=1;i<=12;i++){
+
+        const type = sla.includes(i) ? "SLA 출력" : "FDM 출력";
+
+        gallery.innerHTML += `
+        <div class="portfolio-card output">
+          <img src="images/output/output (${i}).png">
+          <div>
+            <span>${type}</span>
+            <h3>${outputTitles[i-1]}</h3>
+          </div>
+        </div>`;
+      }
+    </script>
+
+  </section>
+
+</div>
+
+<script>
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+filterButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    document.querySelectorAll(".portfolio-card").forEach(card => {
+
+      if(filter === "all"){
+        card.style.display = "block";
+      }
+
+      else if(card.classList.contains(filter)){
+        card.style.display = "block";
+      }
+
+      else{
+        card.style.display = "none";
+      }
+
+    });
+
+  });
+
+});
+
+
+</script>
+
+
+
+</body>
+</html>

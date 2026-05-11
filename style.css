@@ -1,0 +1,567 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.page {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.main-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hotspot {
+  position: absolute;
+  display: block;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* 메인 상단 메뉴 */
+.nav-home {
+  left: 54.5%;
+  top: 1.2%;
+  width: 6%;
+  height: 2.2%;
+}
+
+.nav-portfolio {
+  left: 63.5%;
+  top: 1.2%;
+  width: 9%;
+  height: 2.2%;
+}
+
+.nav-process {
+  left: 76%;
+  top: 1.2%;
+  width: 8%;
+  height: 2.2%;
+}
+
+.nav-contact {
+  left: 87%;
+  top: 0.9%;
+  width: 9.5%;
+  height: 2.3%;
+}
+
+/* 메인 버튼 */
+.hero-portfolio {
+  left: 12%;
+  top: 22.4%;
+  width: 15.5%;
+  height: 2.5%;
+}
+
+.hero-contact {
+  left: 29%;
+  top: 22.4%;
+  width: 15.5%;
+  height: 2.5%;
+}
+
+.portfolio-all {
+  left: 3.5%;
+  top: 61%;
+  width: 14%;
+  height: 2.2%;
+}
+
+.process-detail {
+  left: 3.5%;
+  top: 75.4%;
+  width: 14%;
+  height: 2.2%;
+}
+
+.contact-btn {
+  left: 3.5%;
+  top: 88.6%;
+  width: 14%;
+  height: 2.2%;
+}
+
+
+/* =========================
+PORTFOLIO
+========================= */
+
+.portfolio-wrap{
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.portfolio-base{
+  width: 100%;
+  display: block;
+}
+
+.p-hotspot{
+  position: absolute;
+  display: block;
+  z-index: 99999;
+  cursor: pointer;
+}
+/* 포트폴리오 상단 메뉴 */
+.p-home{
+  left:54.5%;
+  top:15px;
+  width:6%;
+  height:30px;
+}
+
+.p-portfolio{
+  left:64%;
+  top:15px;
+  width:9%;
+  height:30px;
+}
+
+.p-process{
+  left:77%;
+  top:15px;
+  width:8%;
+  height:30px;
+}
+
+.p-contact{
+  left:87%;
+  top:12px;
+  width:10%;
+  height:34px;
+}
+
+
+/* 필터 버튼 */
+.real-filter-buttons{
+  position:absolute;
+  top:490px;
+  left:48px;
+  width:calc(100% - 96px);
+  display:flex;
+  gap:16px;
+  z-index:10;
+}
+
+.filter-btn{
+  flex:1;
+  height:48px;
+  border:1.5px solid #24435f;
+  border-radius:999px;
+  background:#fff;
+  color:#24435f;
+  font-size:17px;
+  cursor:pointer;
+}
+
+.filter-btn.active{
+  background:#24435f;
+  color:#fff;
+}
+
+/* 갤러리 */
+.portfolio-gallery{
+  width:calc(100% - 96px);
+  margin:-1170px auto 100px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  position:relative;
+  z-index:5;
+}
+
+.portfolio-card{
+  border:1.5px solid #7890a5;
+  border-radius:8px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.portfolio-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
+
+.portfolio-card div{
+  padding:18px;
+}
+
+.portfolio-card span{
+  display:block;
+  font-size:14px;
+  color:#24435f;
+  margin-bottom:8px;
+}
+
+.portfolio-card h3{
+  margin:0;
+  font-size:22px;
+  line-height:1.3;
+  color:#24435f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+PROCESS PAGE
+========================= */
+
+.process-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.process-base {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.process-hotspot {
+  position: absolute;
+  display: block;
+  z-index: 50;
+  cursor: pointer;
+}
+
+/* 상단 메뉴 */
+.process-home {
+  left: 54.5%;
+  top: 1.2%;
+  width: 6%;
+  height: 2.3%;
+}
+
+.process-portfolio {
+  left: 63.5%;
+  top: 1.2%;
+  width: 9%;
+  height: 2.3%;
+}
+
+.process-process {
+  left: 76%;
+  top: 1.2%;
+  width: 8%;
+  height: 2.3%;
+}
+
+/* 상단 견적문의 */
+.process-top-contact {
+  left: 86.5%;
+  top: 0.9%;
+  width: 11%;
+  height: 3.3%;
+}
+
+/* 왼쪽 제작 과정 견적문의 */
+.process-side-contact {
+  left: 5.1%;
+  top: 60.2%;
+  width: 7.3%;
+  height: 2.5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+CONTACT PAGE
+========================= */
+
+.contact-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1692px;
+  margin: 0 auto;
+}
+
+.contact-base {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contact-hotspot {
+  position: absolute;
+  z-index: 80;
+  cursor: pointer;
+}
+
+/* 상단 메뉴 */
+.c-home {
+  left: 55.4%;
+  top: 1.15%;
+  width: 5.5%;
+  height: 2.4%;
+}
+
+.c-portfolio {
+  left: 64.2%;
+  top: 1.15%;
+  width: 8.5%;
+  height: 2.4%;
+}
+
+.c-process {
+  left: 76.5%;
+  top: 1.15%;
+  width: 7.8%;
+  height: 2.4%;
+}
+
+.c-contact {
+  left: 86.9%;
+  top: 0.75%;
+  width: 9.5%;
+  height: 3.1%;
+}
+
+/* 폼 전체 */
+.contact-form {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+}
+
+/* 입력 공통 */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  position: absolute;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  z-index: 120;
+  font-family: inherit;
+  font-size: 14px;
+  color: #24435f;
+}
+
+/* input/select 내부 글자 위치 */
+.contact-form input,
+.contact-form select {
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 4px;
+  line-height: normal;
+}
+
+/* textarea 내부 글자 위치 */
+.contact-form textarea {
+  padding: 22px 22px;
+  resize: none;
+  line-height: 1.5;
+}
+
+/* 안내 글자 */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #8b96a3;
+}
+
+/* 셀렉트 */
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #24435f;
+  cursor: pointer;
+}
+
+/* 이름 */
+.form-name {
+  left: 10.15%;
+  top: 41.00%;
+  width: 44.95%;
+  height: 2.85%;
+}
+
+/* 연락처 */
+.form-phone {
+  left: 10.15%;
+  top: 46.50%;
+  width: 44.95%;
+  height: 2.85%;
+}
+
+/* 이메일 */
+.form-email {
+  left: 10.15%;
+  top: 51.92%;
+  width: 44.95%;
+  height: 2.85%;
+}
+
+/* 제작 분야 */
+.form-category {
+  left: 10.15%;
+  top: 57.35%;
+  width: 21.85%;
+  height: 2.85%;
+}
+
+/* 예산 */
+.form-budget {
+  left: 33.15%;
+  top: 57.35%;
+  width: 21.85%;
+  height: 2.85%;
+}
+
+/* 상세 내용 */
+.form-detail {
+  left: 10.15%;
+  top: 62.45%;
+  width: 44.95%;
+  height: 7.55%;
+}
+
+/* 파일 첨부 */
+.form-file {
+  position: absolute;
+  left: 10.15%;
+  top: 74.50%;
+  width: 44.95%;
+  height: 4.95%;
+  z-index: 130;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 23px;
+}
+
+.form-file input {
+  display: none;
+}
+
+.file-main {
+  display: block;
+  color: #24435f;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.file-sub {
+  display: block;
+  color: #8b96a3;
+  font-size: 13px;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+
+/* 버튼 */
+.form-submit {
+  position: absolute;
+  left: 10.15%;
+  top: 80.95%;
+  width: 44.95%;
+  height: 2.95%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 140;
+  font-size: 0;
+}
+
+/* =========================
+상단 메뉴 클릭 우선순위 고정
+========================= */
+/* =========================
+전체 페이지 상단 메뉴 클릭 해결
+========================= */
+
+.hotspot,
+.p-hotspot,
+.process-hotspot,
+.contact-hotspot {
+  position: absolute;
+  z-index: 999999;
+  display: block;
+  cursor: pointer;
+}
+
+.c-home,
+.c-portfolio,
+.c-process,
+.c-contact,
+.p-home,
+.p-portfolio,
+.p-process,
+.p-contact,
+.process-home,
+.process-portfolio,
+.process-process,
+.process-top-contact,
+.process-side-contact {
+  z-index: 999999;
+}
+
+.portfolio-base {
+  pointer-events: none;
+}
