@@ -311,24 +311,6 @@ PROCESS PAGE
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================
 CONTACT PAGE
 ========================= */
@@ -403,7 +385,6 @@ CONTACT PAGE
   color: #24435f;
 }
 
-/* input/select 내부 글자 위치 */
 .contact-form input,
 .contact-form select {
   padding-left: 22px;
@@ -412,20 +393,17 @@ CONTACT PAGE
   line-height: normal;
 }
 
-/* textarea 내부 글자 위치 */
 .contact-form textarea {
   padding: 22px 22px;
   resize: none;
   line-height: 1.5;
 }
 
-/* 안내 글자 */
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: #8b96a3;
 }
 
-/* 셀렉트 */
 .contact-form select {
   appearance: none;
   -webkit-appearance: none;
@@ -437,7 +415,7 @@ CONTACT PAGE
 /* 이름 */
 .form-name {
   left: 10.15%;
-  top: 41.00%;
+  top: 39.20%;
   width: 44.95%;
   height: 2.85%;
 }
@@ -445,7 +423,7 @@ CONTACT PAGE
 /* 연락처 */
 .form-phone {
   left: 10.15%;
-  top: 46.50%;
+  top: 44.20%;
   width: 44.95%;
   height: 2.85%;
 }
@@ -453,7 +431,7 @@ CONTACT PAGE
 /* 이메일 */
 .form-email {
   left: 10.15%;
-  top: 51.92%;
+  top: 49.30%;
   width: 44.95%;
   height: 2.85%;
 }
@@ -461,7 +439,7 @@ CONTACT PAGE
 /* 제작 분야 */
 .form-category {
   left: 10.15%;
-  top: 57.35%;
+  top: 54.30%;
   width: 21.85%;
   height: 2.85%;
 }
@@ -469,7 +447,7 @@ CONTACT PAGE
 /* 예산 */
 .form-budget {
   left: 33.15%;
-  top: 57.35%;
+  top: 54.30%;
   width: 21.85%;
   height: 2.85%;
 }
@@ -477,49 +455,55 @@ CONTACT PAGE
 /* 상세 내용 */
 .form-detail {
   left: 10.15%;
-  top: 62.45%;
+  top: 59.45%;
   width: 44.95%;
   height: 7.55%;
 }
 
-/* 파일 첨부 */
+/* 파일 안내 박스 */
 .form-file {
   position: absolute;
   left: 10.15%;
-  top: 74.50%;
+  top: 70.20%;
   width: 44.95%;
   height: 4.95%;
   z-index: 130;
-  cursor: pointer;
   box-sizing: border-box;
   text-align: center;
-  padding-top: 23px;
-}
-
-.form-file input {
-  display: none;
+  padding-top: 14px;
+  pointer-events: none;
 }
 
 .file-main {
   display: block;
   color: #24435f;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1.2;
 }
 
 .file-sub {
   display: block;
   color: #8b96a3;
-  font-size: 13px;
-  margin-top: 5px;
+  font-size: 11px;
+  margin-top: 4px;
   line-height: 1.2;
 }
 
-/* 버튼 */
+.file-mail {
+  display: block;
+  color: #24435f;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+/* 견적 문의 버튼 */
 .form-submit {
   position: absolute;
   left: 10.15%;
-  top: 80.95%;
+  top: 76.4%;
   width: 44.95%;
   height: 2.95%;
   border: none;
@@ -528,6 +512,38 @@ CONTACT PAGE
   z-index: 140;
   font-size: 0;
 }
+
+/* 카카오 버튼 클릭 영역 */
+.kakao-link {
+  position: absolute;
+  left: 10.15%;
+  top: 81.00%;
+  width: 44.95%;
+  height: 2.95%;
+  z-index: 300;
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =========================
 상단 메뉴 클릭 우선순위 고정
