@@ -709,3 +709,25 @@ MOBILE = PC 원본 그대로 보기
     gap:22px !important;
   }
 }
+
+
+
+/* 포트폴리오 이미지만 저장/드래그 어렵게 */
+.portfolio-wrap img,
+.portfolio-section img,
+.portfolio-grid img,
+.portfolio-card img,
+.portfolio-item img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+
+
+@media (max-width: 768px){
+
+  body{
+    zoom: 0.28;
+  }
+
+}
