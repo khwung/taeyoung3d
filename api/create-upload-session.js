@@ -41,12 +41,12 @@ module.exports = async function handler(req, res) {
     const { fileName, mimeType } = req.body;
 
     const auth = new google.auth.GoogleAuth({
-  credentials: {
-    client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-  },
-  scopes: ["https://www.googleapis.com/auth/drive"],
-});
+      credentials: {
+        client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      },
+      scopes: ["https://www.googleapis.com/auth/drive"],
+    });
 
     const client = await auth.getClient();
     const token = await client.getAccessToken();
@@ -81,7 +81,9 @@ module.exports = async function handler(req, res) {
     const uploadUrl = response.headers.get("location");
 
     if (!uploadUrl) {
-      return res.status(500).json({ error: "업로드 주소 생성 실패" });
+      return res.status(500).json({
+        error: "업로드 주소 생성 실패",
+      });
     }
 
     return res.status(200).json({
@@ -91,14 +93,12 @@ module.exports = async function handler(req, res) {
       folderName: monthFolderName,
       folderId: monthFolderId,
     });
-
   } catch (error) {
     console.error("create-upload-session error:", error);
-   
-    return res.status(500).json({
-  error: "서버 오류",
-  detail: error.message
-});
 
+    return res.status(500).json({
+      error: "서버 오류",
+      detail: error.message,
+    });
   }
 };
