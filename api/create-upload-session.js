@@ -1,6 +1,19 @@
 const { google } = require("googleapis");
 
-const rootFolderId = "1eX1np6Fx6t3bHJ9ROl2zaqsE1W9DCLxS";
+const rootFolderId = process.env.GOOGLE_FOLDER_ID;
+
+function getOAuthClient() {
+  const client = new google.auth.OAuth2(
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET
+  );
+
+  client.setCredentials({
+    refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
+  });
+
+  return client;
+}
 
 function getKoreaMonthFolderName() {
   return new Intl.DateTimeFormat("en-CA", {
@@ -40,16 +53,31 @@ module.exports = async function handler(req, res) {
   try {
     const { fileName, mimeType } = req.body;
 
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      },
-      scopes: ["https://www.googleapis.com/auth/drive"],
-    });
+    if (!fileName) {
+      return res.status(400).json({ error: "fileName 없음" });
+    }
 
-    const client = await auth.getClient();
-    const token = await client.getAccessToken();
+    if (
+      !process.env.GOOGLE_CLIENT_ID ||
+      !process.env.GOOGLE_CLIENT_SECRET ||
+      !process.env.GOOGLE_REFRESH_TOKEN ||
+      !process.env.GOOGLE_FOLDER_ID
+    ) {
+      return res.status(500).json({
+        error: "Google OAuth 환경변수 누락",
+      });
+    }
+
+    const client = getOAuthClient();
+    const accessTokenRes = await client.getAccessToken();
+    const accessToken = accessTokenRes.token;
+
+    if (!accessToken) {
+      return res.status(500).json({
+        error: "Google access token 발급 실패",
+      });
+    }
+
     const drive = google.drive({ version: "v3", auth: client });
 
     const monthFolderName = getKoreaMonthFolderName();
@@ -71,7 +99,7 @@ module.exports = async function handler(req, res) {
       {
         method: "PATCH",
         headers: {
-          Authorization: `Bearer ${token.token}`,
+          Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json; charset=UTF-8",
           "X-Upload-Content-Type": mimeType || "application/octet-stream",
         },
