@@ -94,6 +94,11 @@ module.exports = async function handler(req, res) {
 
   } catch (error) {
     console.error("create-upload-session error:", error);
-    return res.status(500).json({ error: "서버 오류" });
+   
+    return res.status(500).json({
+  error: "서버 오류",
+  detail: error.message
+});
+
   }
 };
