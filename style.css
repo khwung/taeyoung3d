@@ -128,61 +128,65 @@ PORTFOLIO
   cursor: pointer;
 }
 /* 포트폴리오 상단 메뉴 */
+
 .p-home{
-  left:54.5%;
-  top:15px;
-  width:6%;
-  height:30px;
+  left:54%;
+  top:20px;
+  width:120px;
+  height:55px;
 }
 
 .p-portfolio{
   left:64%;
-  top:15px;
-  width:9%;
-  height:30px;
+  top:20px;
+  width:170px;
+  height:55px;
 }
 
 .p-process{
-  left:77%;
-  top:15px;
-  width:8%;
-  height:30px;
+  left:76%;
+  top:20px;
+  width:150px;
+  height:55px;
 }
 
 .p-contact{
   left:87%;
-  top:12px;
-  width:10%;
-  height:34px;
+  top:20px;
+  width:190px;
+  height:65px;
 }
 
 
 /* 필터 버튼 */
 .real-filter-buttons{
   position:absolute;
-  top:800px;
+  top:760px;   /* 7개 탭 위아래 */
   left:48px;
   width:calc(100% - 96px);
   display:flex;
   gap:16px;
-  z-index:10;
+  z-index:999999;
 }
 
 .filter-btn{
   flex:1;
   height:48px;
-  border:1.5px solid #24435f;
+  border:1.5px solid #24435f !important;
   border-radius:999px;
-  background:#fff;
-  color:#24435f;
-  font-size:17px;
+  background:#fff !important;
+  color:#24435f !important;
+  font-size:17px !important;
+  font-weight:700;
   cursor:pointer;
+  padding:0 !important;
 }
 
 .filter-btn.active{
-  background:#24435f;
-  color:#fff;
+  background:#24435f !important;
+  color:#fff !important;
 }
+
 
 /* 갤러리 */
 .portfolio-gallery{
