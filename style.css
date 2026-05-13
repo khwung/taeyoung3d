@@ -17,11 +17,13 @@ body {
 ========================= */
 
 .page {
-  position: relative;
-  width: 100%;
-  max-width: 1280px;
+  width: 1920px !important;
+  max-width: 1920px !important;
   margin: 0 auto;
+  position: relative;
 }
+
+
 
 .main-img {
   display: block;
@@ -107,11 +109,12 @@ PORTFOLIO
 ========================= */
 
 .portfolio-wrap{
-  position: relative;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 1920px !important;
+  max-width: 1920px !important;
+  margin:0 auto;
+  position:relative;
 }
+
 
 .portfolio-base{
   width: 100%;
@@ -206,6 +209,7 @@ PORTFOLIO
   display:block;
 }
 
+
 .portfolio-card div{
   padding:18px;
 }
@@ -249,11 +253,12 @@ PROCESS PAGE
 ========================= */
 
 .process-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 1920px !important;
+  max-width: 1920px !important;
+  margin:0 auto;
+  position:relative;
 }
+
 
 .process-base {
   display: block;
@@ -316,11 +321,12 @@ CONTACT PAGE
 ========================= */
 
 .contact-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 1692px;
-  margin: 0 auto;
+  width: 1920px !important;
+  max-width: 1920px !important;
+  margin:0 auto;
+  position:relative;
 }
+
 
 .contact-base {
   display: block;
@@ -625,93 +631,6 @@ CONTACT PAGE
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =========================
-MOBILE = PC 원본 그대로 보기
-========================= */
-
-@media (max-width: 768px){
-
-  body{
-    overflow-x:auto !important;
-    overflow-y:auto !important;
-  }
-
-  .page,
-  .portfolio-wrap,
-  .process-wrap{
-    width:1280px !important;
-    max-width:none !important;
-    margin:0 !important;
-    overflow:visible !important;
-  }
-
-  .contact-wrap{
-    width:1692px !important;
-    max-width:none !important;
-    margin:0 !important;
-    overflow:visible !important;
-  }
-
-  .main-img,
-  .portfolio-base,
-  .process-base,
-  .contact-base{
-    width:100% !important;
-    height:auto !important;
-  }
-
-  .real-filter-buttons{
-    position:absolute !important;
-    top:490px !important;
-    left:48px !important;
-    width:calc(100% - 96px) !important;
-    display:flex !important;
-    gap:16px !important;
-  }
-
-  .portfolio-gallery{
-    width:calc(100% - 96px) !important;
-    margin:-1170px auto 100px !important;
-    display:grid !important;
-    grid-template-columns:repeat(4,1fr) !important;
-    gap:22px !important;
-  }
-}
-
-
-
 /* 포트폴리오 이미지만 저장/드래그 어렵게 */
 .portfolio-wrap img,
 .portfolio-section img,
@@ -724,10 +643,52 @@ MOBILE = PC 원본 그대로 보기
 
 
 
-@media (max-width: 768px){
 
-  body{
-    zoom: 0.28;
+
+
+
+
+
+
+/* =========================
+MOBILE = PC 1920 화면을 자동 축소해서 보기
+========================= */
+@media (max-width: 768px) {
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
+  
+  body {
+  width: 1920px;
+  transform: scale(calc(100vw / 1920));
+  transform-origin: top left;
+
+  /* 추가 */
+  height: calc(100% * (1920 / 100vw));
+}
+
+
+  .page,
+  .portfolio-wrap,
+  .process-wrap,
+  .contact-wrap {
+    width: 1920px !important;
+    max-width: 1920px !important;
+    margin: 0 !important;
+  }
+
+  .main-img,
+  .portfolio-base,
+  .process-base,
+  .contact-base {
+    width: 1920px !important;
+    max-width: none !important;
+    height: auto !important;
+  }
 }
