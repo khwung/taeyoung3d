@@ -41,9 +41,12 @@ module.exports = async function handler(req, res) {
     const { fileName, mimeType } = req.body;
 
     const auth = new google.auth.GoogleAuth({
-      keyFile: "./api/google-drive-key.json",
-      scopes: ["https://www.googleapis.com/auth/drive"],
-    });
+  credentials: {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  },
+  scopes: ["https://www.googleapis.com/auth/drive"],
+});
 
     const client = await auth.getClient();
     const token = await client.getAccessToken();
