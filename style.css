@@ -160,7 +160,7 @@ PORTFOLIO
 /* 필터 버튼 */
 .real-filter-buttons{
   position:absolute;
-  top:490px;
+  top:800px;
   left:48px;
   width:calc(100% - 96px);
   display:flex;
@@ -186,13 +186,17 @@ PORTFOLIO
 
 /* 갤러리 */
 .portfolio-gallery{
+  position:absolute;
+  top:950px;
+  left:48px;
   width:calc(100% - 96px);
-  margin:-1170px auto 100px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:22px;
-  position:relative;
   z-index:5;
+}
+.portfolio-wrap{
+  min-height: 4200px;
 }
 
 .portfolio-card{
@@ -647,32 +651,19 @@ CONTACT PAGE
 
 
 
-
-
-
 /* =========================
-MOBILE = PC 1920 화면을 자동 축소해서 보기
+MOBILE = PC 1920 화면 자동 축소
 ========================= */
-@media (max-width: 768px) {
+@media screen and (max-width: 1200px) {
 
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
   }
-
-  
-  body {
-  width: 1920px;
-  transform: scale(calc(100vw / 1920));
-  transform-origin: top left;
-
-  /* 추가 */
-  height: calc(100% * (1920 / 100vw));
-}
-
 
   .page,
   .portfolio-wrap,
@@ -681,6 +672,9 @@ MOBILE = PC 1920 화면을 자동 축소해서 보기
     width: 1920px !important;
     max-width: 1920px !important;
     margin: 0 !important;
+
+    transform: scale(calc(100vw / 1920px));
+    transform-origin: top left;
   }
 
   .main-img,
