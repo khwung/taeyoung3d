@@ -650,23 +650,19 @@ CONTACT PAGE
 }
 
 
-
-
-
-
-
 /* =========================
-MOBILE = PC 1920 화면 자동 축소
+MOBILE = PC버전 그대로 축소 + 확대축소 가능
 ========================= */
+
 @media screen and (max-width: 1200px) {
 
   html,
   body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    overflow-x: hidden !important;
+    overflow-x: auto !important;
     overflow-y: auto !important;
+    background: #e9edf2;
   }
 
   .page,
@@ -674,11 +670,12 @@ MOBILE = PC 1920 화면 자동 축소
   .process-wrap,
   .contact-wrap {
     width: 1920px !important;
-    max-width: 1920px !important;
-    margin: 0 !important;
+    max-width: none !important;
+    min-width: 1920px !important;
+    margin: 0 auto !important;
 
-    transform: scale(calc(100vw / 1920px));
-    transform-origin: top left;
+    transform: none !important;
+    zoom: 0.20;
   }
 
   .main-img,
@@ -689,4 +686,58 @@ MOBILE = PC 1920 화면 자동 축소
     max-width: none !important;
     height: auto !important;
   }
+
 }
+
+
+/* =========================
+투명 클릭영역 전체 강제 초기화
+16개 버튼 전부 공통 처리
+========================= */
+
+a.hotspot,
+a.p-hotspot,
+a.process-hotspot,
+a.contact-hotspot,
+a.kakao-link,
+a.hero-portfolio,
+a.hero-contact,
+a.portfolio-all,
+a.process-detail,
+a.contact-btn,
+a.process-top-contact,
+a.process-side-contact {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+a.hotspot:hover,
+a.hotspot:active,
+a.hotspot:focus,
+a.p-hotspot:hover,
+a.p-hotspot:active,
+a.p-hotspot:focus,
+a.process-hotspot:hover,
+a.process-hotspot:active,
+a.process-hotspot:focus,
+a.contact-hotspot:hover,
+a.contact-hotspot:active,
+a.contact-hotspot:focus,
+a.kakao-link:hover,
+a.kakao-link:active,
+a.kakao-link:focus {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
