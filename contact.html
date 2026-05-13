@@ -200,14 +200,15 @@ async function uploadFileToDrive(file, fileIndex, totalFiles) {
   });
 
   const sessionData = await sessionRes.json();
-
+  
   if (!sessionRes.ok || !sessionData.uploadUrl) {
-throw new Error(sessionData.detail || sessionData.error || '업로드 주소 생성 실패');
-
+    throw new Error(sessionData.detail || sessionData.error || '업로드 주소 생성 실패');
+  }
 
   const uploadUrl = sessionData.uploadUrl;
   const fileId = sessionData.fileId;
   const fileLink = sessionData.fileLink;
+
 
 const chunkSize = file.size;
   let start = 0;
