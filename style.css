@@ -460,18 +460,32 @@ CONTACT PAGE
   height: 7.55%;
 }
 
-/* 파일 안내 박스 */
+
+
+/* 파일 업로드 박스 */
 .form-file {
   position: absolute;
   left: 10.15%;
-  top: 70.20%;
+  top: 70.60%;
   width: 44.95%;
   height: 4.95%;
-  z-index: 130;
+  z-index: 160;
   box-sizing: border-box;
   text-align: center;
-  padding-top: 14px;
-  pointer-events: none;
+  padding-top: 0px;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 8px;
+  transition: background 0.2s ease, border 0.2s ease, opacity 0.2s ease;
+}
+
+.real-file-input {
+  display: none;
+}
+
+.form-file.drag-over {
+  border: 2px dashed #244b6e;
+  background: rgba(36, 75, 110, 0.06);
 }
 
 .file-main {
@@ -486,18 +500,34 @@ CONTACT PAGE
   display: block;
   color: #8b96a3;
   font-size: 11px;
-  margin-top: 4px;
+  margin-top: 12px;
   line-height: 1.2;
+}
+
+.file-sub.upload-success {
+  color: #1f8f4d;
+  font-weight: 700;
+}
+
+.file-sub.upload-error {
+  color: #d93025;
+  font-weight: 700;
 }
 
 .file-mail {
   display: block;
   color: #24435f;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  margin-top: 4px;
+  margin-top: -5px;
   line-height: 1.2;
 }
+
+.file-sub{
+  position: relative;
+  top: -10px;
+}
+
 
 /* 견적 문의 버튼 */
 .form-submit {
@@ -512,6 +542,17 @@ CONTACT PAGE
   z-index: 140;
   font-size: 0;
 }
+
+.form-submit.is-disabled,
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+
+
+
+
 
 /* 카카오 버튼 클릭 영역 */
 .kakao-link {

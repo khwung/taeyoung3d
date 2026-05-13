@@ -1,0 +1,4 @@
+api/google-drive-key.json
+node_modules
+.env
+.vercel
